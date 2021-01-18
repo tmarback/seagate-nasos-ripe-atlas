@@ -1,0 +1,28 @@
+{
+    "type": "application", 
+    "id": "dev.sympho.ripe-atlas", 
+    "version": "1.0", 
+    "depends": [
+        "com.ubuntu.trusty-lamp-1.0"
+    ], 
+    "startup_mode": "auto", 
+    "settings": {}, 
+    "network_ports": {
+        "some_port": 8080, 
+        "WEB_UI": 6969, 
+        "telnetd": 2023
+    }, 
+    "port_mapping": [], 
+    "fixed_ports": [
+        "some_port", 
+        "telnetd"
+    ], 
+    "display_mode": "embedded", 
+    "redirect_mode": "transparent", 
+    "user_data_access": false, 
+    "private_data_access": false, 
+    "app_data": [
+        "/var/atlas-probe/etc/",
+        "/var/log/atlas/"
+    ]
+}

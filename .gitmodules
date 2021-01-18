@@ -1,0 +1,4 @@
+[submodule "source/ripe-atlas-software-probe"]
+	path = source/ripe-atlas-software-probe
+	url = https://github.com/tmarback/ripe-atlas-software-probe.git
+	branch = devel

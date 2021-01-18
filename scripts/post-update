@@ -1,0 +1,18 @@
+#!/bin/sh
+
+set -e # Do not continue if anything fails
+
+STORE_DIR="/opt/ripe-atlas"
+
+echo "Installing deb."
+if sudo dpkg -i $STORE_DIR/atlasswprobe.deb; then
+	echo "Deb installed."
+else
+	echo "Could not install deb."
+	exit 3
+fi
+
+echo "Configuring logging."
+sudo logrotate $STORE_DIR/logrotate.config
+
+exit 0

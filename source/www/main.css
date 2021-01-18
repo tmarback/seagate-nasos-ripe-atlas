@@ -1,0 +1,18 @@
+.text_box {
+    border: 3px solid #333;
+    padding: 10px;
+    display: block;
+    position: relative;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.console_text {
+    font-family: "Cascadia Mono", Consolas, monospace;
+}
+
+.log_text {
+    white-space: pre-wrap;
+    overflow: auto;
+    max-height: 50vh
+}

@@ -1,0 +1,31 @@
+#!/bin/sh -e
+
+DATA_DIR="/var/atlasdata"
+
+if [ "$1" = "start" ]; then
+	sudo mount -t tmpfs -o noatime,nosuid,nodev,noexec,mode=2775 tmpfs $DATA_DIR
+    chown atlas:atlas $DATA_DIR
+fi
+
+sudo service atlas $1
+
+if [ "$1" = "stop" ]; then
+	sudo umount $DATA_DIR
+fi
+
+# Update config files with NASOS informations
+APACHE_TEMPLATE_DEFAULT_SITE="/etc/default.conf.apache_template"
+APACHE_TEMPLATE_PORTS_CONF="/etc/ports.conf.apache_template"
+
+APACHE_CONFIG_DIR=/etc/apache2
+APACHE_CONFIG_SITE=default.conf
+
+sed "s,{RAINBOW_WEB_PATH},$RAINBOW_WEB_PATH,g" $APACHE_TEMPLATE_DEFAULT_SITE > $APACHE_CONFIG_DIR/sites-available/$APACHE_CONFIG_SITE
+sed "s/{RAINBOW_PORT_WEB_UI}/$RAINBOW_PORT_WEB_UI/g" $APACHE_TEMPLATE_PORTS_CONF > $APACHE_CONFIG_DIR/ports.conf
+
+rm $APACHE_CONFIG_DIR/sites-enabled/*
+ln --symbolic --force -T ../sites-available/$APACHE_CONFIG_SITE $APACHE_CONFIG_DIR/sites-enabled/$APACHE_CONFIG_SITE
+
+service apache2 $1
+
+exit 0

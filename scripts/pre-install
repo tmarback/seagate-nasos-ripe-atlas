@@ -1,0 +1,20 @@
+#!/bin/sh
+
+if capsh --supports=cap_net_raw; then
+	echo "System supports the necessary capabilities."
+else
+	echo "System does not support the necessary capabilities."
+	exit 1
+fi
+
+TEST_FILE="/tmp/test.txt"
+echo "test" > $TEST_FILE
+#if sudo setcap cap_net_raw=ep ${TEST_FILE}; then
+#	echo "Capability check successful."
+#else
+#	echo "Capability check failed."
+#	exit 2
+#fi
+
+rm $TEST_FILE
+exit 0

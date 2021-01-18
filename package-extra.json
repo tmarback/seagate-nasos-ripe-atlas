@@ -1,0 +1,30 @@
+{
+    "name": {
+        "en": "RIPE Atlas"
+    }, 
+    "description_short": {
+        "en": "Runs a RIPE Atlas probe in a Seagate Personal Cloud."
+    }, 
+    "description_long": {}, 
+    "changelog": {}, 
+    "keywords": {
+        "en": [
+            "ripe-atlas", 
+            "probe", 
+            "network"
+        ]
+    }, 
+    "publisher_name": "Thiago Marback", 
+    "publisher_contact": "tmarback@sympho.dev", 
+    "publication_date": "2021-01-15", 
+    "website_url": "", 
+    "privacy_url": "", 
+    "disclaimer": "", 
+    "categories": [
+        "utilities", 
+        "beta"
+    ], 
+    "supported_languages": [
+        "en"
+    ]
+}
