@@ -15,4 +15,8 @@ fi
 echo "Configuring logging."
 sudo logrotate $STORE_DIR/logrotate.config
 
+# Reset key permissions
+chmod 600 /var/atlas-probe/etc/probe_key
+chmod 644 /var/atlas-probe/etc/probe_key.pub
+
 exit 0
