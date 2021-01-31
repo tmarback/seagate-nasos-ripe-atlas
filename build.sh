@@ -42,6 +42,7 @@ install -m 644 /home/source/default.conf.apache_template /etc/default.conf.apach
 install -m 644 /home/source/ports.conf.apache_template /etc/ports.conf.apache_template
 rm -rf /var/www/*
 cp -r /home/source/www/* /var/www/
+chmod a+r -R /var/www
 
 echo "Build complete."
 
