@@ -1,7 +1,7 @@
 {
     "type": "application", 
     "id": "dev.sympho.ripe-atlas", 
-    "version": "1.0.2", 
+    "version": "1.0.3", 
     "depends": [
         "com.ubuntu.trusty-lamp-1.0"
     ], 
